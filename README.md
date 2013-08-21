@@ -7,6 +7,7 @@ This is a simple program for analyzing the difficulty of Chinese articles for yo
 This is a GUI program and MVC models are used in OOD programming.
 
 * What it does?
+
 The program first loads several dictionaries, each of which contain a number of Chinese characters. Then the user input
 an Chinese article and the program will calculate the percentage of Chinese characters not in the dictionaries. Further,
 the program highlight those characters.
