@@ -1,0 +1,6 @@
+dict/dict1.txt
+dict/dict2.txt
+dict/dict3.txt
+dict/dict4.txt
+dict/dict5.txt
+dict/dict6.txt
