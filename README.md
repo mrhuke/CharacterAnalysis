@@ -20,4 +20,5 @@ the program highlight those characters.
 4. After you configured the dictionaries you can double click the textAnalyzer.jar file to run the program. 
 
 * Disclaimer:
+
 This program is developed for learning and assistance purposes and the author does not guarantee its complete correctness.  
