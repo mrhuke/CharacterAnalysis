@@ -18,3 +18,6 @@ the program highlight those characters.
 2. Find the "dictlist.txt" file which specifies dictionary names. A maximum of 6 dictionaries is allowed at this moment.
 3. So far, dictionaries must be in the folder "dict" (will be improved later). You can edit any one of them by adding or removing any Chinese characters.
 4. After you configured the dictionaries you can double click the textAnalyzer.jar file to run the program. 
+
+* Disclaimer:
+This program is developed for learning and assistance purposes and the author does not guarantee its complete correctness.  
