@@ -128,6 +128,9 @@ public class ArticleInDictionaryAnalyzerController{
     		if (e.getValueIsAdjusting())
     			return;
     		m_view.showDictionary(m_view.getDictIndex());
+    		// should change the dictlists for checking at the same time.
+    		// e.g. if you select two-star, it needs include one and two star only (i.e. <= this index) 
+    		m_model.resetSelectedDictionaries(m_view.getDictIndex());
   		  }
     }
     
