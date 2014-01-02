@@ -17,6 +17,7 @@ public class ArticleInDictionaryAnalyzerModel {
     private BigInteger m_total;  // The total current value state.
     Article article = null;
     ArrayList<Dictionary> dicts = new ArrayList<Dictionary>();
+    ArrayList<Dictionary> selected_dicts = new ArrayList<Dictionary>();
     
     //============================================================== constructor
     /** Constructor */
@@ -79,6 +80,7 @@ public class ArticleInDictionaryAnalyzerModel {
              line = br.readLine();
          }
          br.close();
+         resetSelectedDictionaries(dicts.size() -1);
          return dicts.size();
     }
     
@@ -87,7 +89,15 @@ public class ArticleInDictionaryAnalyzerModel {
     {
     	return dicts;
     }
-    
+    // reset dictionaries as desired , including dicts <= index
+    public ArrayList<Dictionary> resetSelectedDictionaries(int selectedIndex)
+    {
+       selected_dicts.clear();
+       for(int i = 0; i <= selectedIndex; i++) {
+           selected_dicts.add(dicts.get(i));
+       }
+       return selected_dicts;
+    }
     // get article
     public Article getArticle()
     {
@@ -103,7 +113,7 @@ public class ArticleInDictionaryAnalyzerModel {
 		Set<Character> uniqueCharacters = new HashSet<Character>();
  		for (Character ch : article.uniqueCharacters())
 		{
-			for ( Dictionary dict : dicts ){
+			for ( Dictionary dict : selected_dicts ){
 				if (dict.hasCharacter(ch)){
 					uniqueCharacters.add(ch);
 					continue;
