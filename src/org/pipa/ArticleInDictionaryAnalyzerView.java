@@ -15,6 +15,7 @@ import javax.swing.border.*;
 import java.awt.event.*;
 import java.util.List;
 import java.util.Set;
+import java.util.HashSet;
 
 class ArticleInDictionaryAnalyzerView extends JFrame {
 	//... Constants
@@ -178,14 +179,23 @@ class ArticleInDictionaryAnalyzerView extends JFrame {
 	public void highlightCharactersNotInSet(List<Character> chars, Set<Character> uniqueChars)
 	{
 		int count = 0;
+		Set<Character> uniqueIsInChars = new HashSet<Character>();
 		for (Character ch : chars){
 			// contained in the set or punctuation
-			if (uniqueChars.contains(ch) || (!Character.isDigit(ch) && !Character.isLetter(ch))){
-				appendToPane(m_articleTp, ch.toString(), Color.BLACK);
-			}
-			else{
-				appendToPane(m_articleTp, ch.toString(), Color.RED);
-			}
+			if( Character.isDigit(ch) || Character.isLetter(ch)){ // exclude Digits/ ASCII Letters
+                             appendToPane(m_articleTp, ch.toString(), Color.BLACK);
+                        }
+                        else if (uniqueChars.contains(ch) || (!Character.isDigit(ch) && !Character.isLetter(ch))){
+                             appendToPane(m_articleTp, ch.toString(), Color.BLACK);
+                        }
+                        else if(uniqueIsInChars.contains(ch)) {
+                             appendToPane(m_articleTp, ch.toString(), Color.BLUE);
+                        }
+                        else {
+                             appendToPane(m_articleTp, ch.toString(), Color.RED);
+                             uniqueIsInChars.add(ch);
+                        }             
+			
 			if (++count % 20 == 0) appendToPane(m_articleTp, "\n", Color.BLACK);
 		}
 	}
