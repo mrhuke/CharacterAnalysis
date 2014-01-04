@@ -182,7 +182,7 @@ class ArticleInDictionaryAnalyzerView extends JFrame {
 		Set<Character> uniqueIsInChars = new HashSet<Character>();
 		for (Character ch : chars){
 			// contained in the set or punctuation
-			if( Character.isDigit(ch) || Character.isLetter(ch)){ // exclude Digits/ ASCII Letters
+			if( Character.isDigit(ch)){ // exclude Digits/ ASCII Letters
                              appendToPane(m_articleTp, ch.toString(), Color.BLACK);
                         }
                         else if (uniqueChars.contains(ch) || (!Character.isDigit(ch) && !Character.isLetter(ch))){

@@ -77,7 +77,8 @@ public class ArticleInDictionaryAnalyzerController{
         		//System.out.println(output);
             	// show result in artilceTF in viewm_view
         		double percent = (double)uniqueCharsInArt.size()/m_model.numberUniqueCharactersInArticle()*100;
-        		String head = String.format("%.2f%% words are in dictionaries. Characters not in dictionaries are in red.\n", percent);
+        		String head = String.format("%.2f%% words are in dictionaries. Characters not in dictionaries and appearing for the FIRST time are in red. "
+        				                     + "The same characters appearing AGAIN are in blue.\n", percent);
         		ArticleInDictionaryAnalyzerView.appendToPane(m_view.getColoredArticle(), head, Color.BLACK);
                 m_view.highlightCharactersNotInSet(m_model.getArticle().chars(), uniqueCharsInArt);
                 
